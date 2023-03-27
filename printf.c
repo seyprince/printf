@@ -23,7 +23,6 @@ int _printf(const char *format, ...)
 			if (format[i] == '%')
 				format++;
 		}
-
 		switch (format[i])
 		{
 			case 'c':
@@ -31,10 +30,8 @@ int _printf(const char *format, ...)
 				len = len + 1;
 				sip = va_arg(arg, int);
 				printf("%c", sip);
-				format++;
 				break;
 			}
-			
 			case 's':
 			{
 				for (j = 0; j < '\0'; j++)
@@ -43,23 +40,18 @@ int _printf(const char *format, ...)
 				}
 				Str = va_arg(arg, char*);
 				printf("%s", Str);
-				format++;
 				break;
 			}
-
 			case '%':
 			{
 				printf("%%");
 				len += 1;
-				format++;
 				break;
 			}
-
 			default:
 			{
 				printf("%c", format[i]);
 				len += 1;
-				format++;
 				break;
 			}
 		}
