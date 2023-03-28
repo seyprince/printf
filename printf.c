@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 			}
 			case '%':
 			{
-				putchar('%');
+				printf("%%");
 				len++;
 				break;
 			}
@@ -48,7 +48,7 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			putchar(*format);
+			printf("%c", *format);
 			len++;
 		}
 		format++;
