@@ -1,6 +1,7 @@
 #include "main.h"
 #include <stdarg.h>
 #include <stdio.h>
+#include <string.h>
 
 /**
  * _printf - print a string
@@ -12,7 +13,7 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	unsigned int i = 0, len = 0;
-	int sip, j;
+	int sip;
 	char *Str;
 
 	va_start(arg, format);
@@ -29,28 +30,25 @@ int _printf(const char *format, ...)
 			{
 				len = len + 1;
 				sip = va_arg(arg, int);
-				printf("%c", sip);
+				putchar(sip);
 				break;
 			}
 			case 's':
 			{
-				for (j = 0; j < '\0'; j++)
-				{
-					len += 1;
-				}
 				Str = va_arg(arg, char*);
-				printf("%s", Str);
+				len += strlen(Str);
+				puts(Str);
 				break;
 			}
 			case '%':
 			{
-				printf("%%");
+				putchar('%');
 				len += 1;
 				break;
 			}
 			default:
 			{
-				printf("%c", format[i]);
+				putchar(format[i]);
 				len += 1;
 				break;
 			}
