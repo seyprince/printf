@@ -1,5 +1,5 @@
-## **PRINTF**  
-A printf project by Ankomah-Sey and Benedict  
+## **Printf Project**  
+A printf project by # *Ankomah-Sey* and # *Benedict*  
 Created a printf function to handle the following convension specifiers:  
 -c
 -s
