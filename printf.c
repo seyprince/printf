@@ -12,49 +12,47 @@
 int _printf(const char *format, ...)
 {
 	va_list arg;
-	unsigned int i = 0, len = 0;
-	int sip;
+	int len = 0;
 	char *Str;
 
 	va_start(arg, format);
-	if (format)
+	while (*format != '\0')
 	{
-		for (i = 0; format && format[i]; i++)
+		if (*format == '%')
 		{
-			if (format[i] == '%')
-				format++;
-		}
-		switch (format[i])
+		format++;
+		switch (*format)
 		{
 			case 'c':
 			{
-				len = len + 1;
-				sip = va_arg(arg, int);
-				putchar(sip);
+				len++;
+				printf("%c", va_arg(arg, int));
 				break;
 			}
 			case 's':
 			{
 				Str = va_arg(arg, char*);
 				len += strlen(Str);
-				puts(Str);
+				printf("%s", Str);
 				break;
 			}
 			case '%':
 			{
 				putchar('%');
-				len += 1;
+				len++;
 				break;
 			}
 			default:
-			{
-				putchar(format[i]);
-				len += 1;
 				break;
-			}
 		}
+		}
+		else
+		{
+			putchar(*format);
+			len++;
+		}
+		format++;
 	}
 	va_end(arg);
-
 	return (len);
 }
