@@ -20,6 +20,6 @@ Created a printf function to handle the following convension specifiers:
 -R
 -0
 -l
--h
+-h  
 Handled field width for non-custom conversion specifiers  
 Handled precision for non-custom conversion specifiers  
